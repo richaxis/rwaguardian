@@ -1,0 +1,7 @@
+{
+  "name": "rwa-guardian",
+  "private": true,
+  "workspaces": [
+    "frontend"
+  ]
+}
