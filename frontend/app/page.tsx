@@ -22,7 +22,13 @@ type Asset = {
   verification_count: number | bigint;
 };
 
-const CONTRACT = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS || "";
+const CONTRACT_ADDRESS = process.env.NEXT_PUBLIC_CONTRACT_ADDRESS;
+
+if (!CONTRACT_ADDRESS) {
+  throw new Error("NEXT_PUBLIC_CONTRACT_ADDRESS is not configured");
+}
+
+const CONTRACT = CONTRACT_ADDRESS as `0x${string}`;
 const RPC = process.env.NEXT_PUBLIC_GENLAYER_RPC_URL || "https://studio-dev.genlayer.com/api";
 
 function shortAddress(address: string) {
